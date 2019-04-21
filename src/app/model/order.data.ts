@@ -19,10 +19,11 @@ private orders: Order[] = [];
      //   console.log(JSON.stringify(order));
      // }
 
+    // tslint:disable-next-line:member-ordering
     httpOptions = {
         headers: new HttpHeaders({ 'Content-Type': 'application/json'})
       };
-    
+
       saveOrder(order: Order): Observable<Order> {
         // console.log('MY ORDER: ', JSON.stringify(order));
         console.log('CART Price: ', JSON.stringify(order.cart.cartPrice));
