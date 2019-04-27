@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Cart } from './cart.data.model';
+import { CreditCard } from './credit_card.data.model';
 
 @Injectable()
 export class Order {
@@ -10,8 +11,9 @@ export class Order {
     public zip: string;
     public country: string;
     public shipped = false;
+    public creditCardNumber: number;
 
-    constructor(public cart: Cart) { }
+    constructor(public cart: Cart, public creditCard: CreditCard) { }
 
     clear() {
         this.id = null;
@@ -19,5 +21,6 @@ export class Order {
         this.zip = this.country = null;
         this.shipped = false;
         this.cart.clear();
+        this.creditCard.clear();
     }
 }

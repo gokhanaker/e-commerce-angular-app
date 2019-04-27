@@ -2,11 +2,14 @@
     margin-left: 1%;
     background-color: #DCDCDC;
 }
-/*
-body{
-    background-image: linear-gradient(#ff5f6d, #ffc371);
+
+.store-wrapper{    
+    background-image: linear-gradient(#f2c94c, #f2994a);
 }
-*/
+
+.store-header {
+    color: white;
+}
 
 .catButtons{
     margin-top:5%;
@@ -15,5 +18,9 @@ body{
 .add-to-cart-btn{
     display: block;
     margin-top: 2%;
+}
+
+.pagination{
+    margin-top: 5%;
 }
 

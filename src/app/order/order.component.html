@@ -1,67 +1,116 @@
-
 <div class="container">
-    <h4 class = "text-center" *ngIf="!orderSent" > Please fill the contact form for product delivery </h4>
+    <div class="row">
+        <div class="col-md-3"> </div>
+        <div class="col-md-6 order-wrapper">
+            <h4 class = "text-center order-header" *ngIf="!orderSent" > Please fill the contact form for product delivery </h4>
+            <form  *ngIf="!orderSent" #form="ngForm" novalidate
+                (ngSubmit)="submitOrder(form)">
 
-    <div *ngIf="orderSent" class="text-center">
-        <h2>Thanks!</h2>
-        <p>Thanks for your order.</p>
-        <p>We'll deliver your products as soon as possible.</p>
-        <button class="btn btn-primary" routerLink="/store">Return to Store</button>
+                    <div class="form-group">
+                        <label class="order-form-field">Name</label>
+                        <input class="form-control"  name="name"
+                            [(ngModel)]="order.name" required />
+                        <span  *ngIf="submitted && name.invalid" class="text-danger">
+                            Please enter your name
+                        </span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="order-form-field">Address</label>
+                        <input class="form-control"  name="address"
+                            [(ngModel)]="order.address" required />
+                        <span  *ngIf="submitted && address.invalid" class="text-danger">
+                            Please enter your address
+                        </span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="order-form-field">City</label>
+                        <input class="form-control"  name="city"
+                            [(ngModel)]="order.city" required />
+                        <span  *ngIf="submitted && city.invalid"  class="text-danger">
+                            Please enter your city
+                        </span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="order-form-field">Zip/Postal Code</label>
+                        <input class="form-control"  name="zip"
+                            [(ngModel)]="order.zip" required />
+                        <span  *ngIf="submitted && zip.invalid" class="text-danger">
+                            Please enter your zip/postal code
+                        </span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="order-form-field">Country</label>
+                        <input class="form-control" name="country"
+                            [(ngModel)]="order.country" required />
+                        <span *ngIf="submitted && country.invalid" class="text-danger">
+                            Please enter your country
+                        </span>
+                    </div>
+                    
+                    <h4 class = "text-center order-header"> Please enter your credit card informations </h4>
+
+                    <div class="form-group">
+                        <label class="order-form-field">Credit Card Holder Name</label>
+                        <input class="form-control"  name="creditCardHolderName" placeholder="Mr. Example"
+                            [(ngModel)]="order.creditCard.creditCardHolderName" required />
+                        <span  *ngIf="submitted && creditCardHolderName.invalid" class="text-danger">
+                            Please enter your card holder name
+                        </span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="order-form-field">Credit Card Number</label>
+                        <input class="form-control"  name="creditCardNumber" placeholder="1111 2222 3333 4444"
+                            [(ngModel)]="order.creditCard.creditCardNumber" required />
+                    <span  *ngIf="submitted && creditCardNumber.invalid" class="text-danger">
+                            Please enter your credit card number
+                        </span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="order-form-field">Credit Card Expiry Date</label>
+                        <input class="form-control"  name="creditCardExpiryDate" placeholder="01/2021"
+                            [(ngModel)]="order.creditCard.creditCardExpiryDate" required />
+                        <span  *ngIf="submitted && creditCardExpiryDate.invalid" class="text-danger">
+                            Please enter your credit card expiry date
+                        </span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="order-form-field">Credit Card Security Code</label>
+                        <input class="form-control" name="creditCardSecurityCode" placeholder="000"
+                            [(ngModel)]="order.creditCard.creditCardSecurityCode" required />
+                        <span  *ngIf="submitted && creditCardSecurityCode.invalid" class="text-danger">
+                            Please enter your credit card security code
+                        </span>
+                    </div>
+                    
+                    <div>
+                        <button class="btn btn-warning" routerLink="/cart">Go Back To Your Cart</button>
+                        <button class="btn btn-success btn-complete-order" type="submit">Complete Order</button>
+                    </div>     
+            </form>
+        </div>
+
+        <div class="col-md-3"> </div>  
     </div>
+</div>
 
-    <div class= "text-center">
-    <form  *ngIf="!orderSent" #form="ngForm" novalidate
-        (ngSubmit)="submitOrder(form)">
 
-        <div class="form-group">
-            <label>Name</label>
-            <input class="form-control" #name="ngModel" name="name"
-                [(ngModel)]="order.name" required />
-            <span  *ngIf="submitted && name.invalid" class="text-danger">
-                Please enter your name
-            </span>
+<div *ngIf="orderSent">
+    <div class ="container">
+        <div class="row">
+            <div class="col-md-4"> </div>
+            <div class="col-md-4" class="completed-order text-center">
+                <h2>Thanks for your order!</h2>
+                <h4>We'll deliver your products as soon as possible.</h4>
+                <button class="btn btn-primary" routerLink="/store">Return to Store</button>
+            </div>
+            <div class="col-md-4"> </div>
         </div>
-
-        <div class="form-group">
-            <label>Address</label>
-            <input class="form-control" #address="ngModel" name="address"
-                [(ngModel)]="order.address" required />
-        <span  *ngIf="submitted && address.invalid" class="text-danger">
-                Please enter your address
-            </span>
-        </div>
-
-        <div class="form-group">
-            <label>City</label>
-            <input class="form-control" #city="ngModel" name="city"
-                [(ngModel)]="order.city" required />
-            <span  *ngIf="submitted && city.invalid" class="text-danger">
-                Please enter your city
-            </span>
-        </div>
-
-        <div class="form-group">
-            <label>Zip/Postal Code</label>
-            <input class="form-control" #zip="ngModel" name="zip"
-                [(ngModel)]="order.zip" required />
-            <span  *ngIf="submitted && zip.invalid" class="text-danger">
-                Please enter your zip/postal code
-            </span>
-        </div>
-
-        <div class="form-group">
-            <label>Country</label>
-            <input class="form-control" #country="ngModel" name="country"
-                [(ngModel)]="order.country" required />
-            <span  *ngIf="submitted && country.invalid" class="text-danger">
-                Please enter your country
-            </span>
-        </div>
-
-        <div>
-            <button class="btn btn-warning" routerLink="/cart">Go Back To Your Cart</button>
-            <button class="btn btn-success complete-order" type="submit">Complete Order</button>
-        </div>
-    </form>
     </div>
 </div>

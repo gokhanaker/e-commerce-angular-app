@@ -10,7 +10,9 @@ import { NgForm } from '@angular/forms';
 })
 export class OrderComponent implements OnInit {
 
+  // 'orderSent' is for only valid form submissions
   orderSent = false;
+  // 'submitted' is for all form submissions although it has errors
   submitted = false;
   constructor(public orderData: OrderData,
                 public order: Order) {}

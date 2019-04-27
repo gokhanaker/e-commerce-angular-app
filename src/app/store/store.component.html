@@ -13,21 +13,22 @@
   </div>
 </nav>
 
-<div class="container">
-    <div class ="text-center">
-         <h4 header> In this e-commerce website, you can buy toys/action figures of famous characters </h4>
+<div class="container store-wrapper">
+    <div class="text-center">
+        <h4 class="store-header"> In this e-commerce website, you can buy toys/action figures of famous characters </h4>
         <hr style="height:1px;"/>
     <div>
 <div>
 
 <div class="container">
     <div class = "row">
-        <div *ngFor="let product of storeProducts">
+        <div *ngFor="let product of storeProducts; let i = index">
             <div class= "col-md-3" >
                 <h4 class="text-center">
                     <!-- property binding -->
                     {{product.name}}               
                     {{product.price | currency:"USD" }}
+                    <!-- {{ i }} -->
                 </h4>
                 <div class = "text-center">
                     {{product.description}}  
@@ -39,12 +40,16 @@
             <div class ="col-md-3">
                 <img src = {{product.image}} width = '200px' height = '200px'/>
             </div>
-    
-        </div>
+            <!-- to create a space to consecutive row -->
+            <div *ngIf="i%2==1">
+               <p style="visibility:hidden;"> new row </p>
+            </div>
+        </div>     
     </div>
 </div>
 
-  <div class="text-center">
+  <div class="text-center pagination">
+        <hr style="height:1px;"/>
         <button *ngFor="let page of pageNumbers" (click)="changePage(page)"
                 class="btn btn-outline-primary" [class.active]="page == selectedPage">
                     {{page}}

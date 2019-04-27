@@ -20,14 +20,15 @@ import { ProductService } from './model/product.service';
 import { Cart } from './model/cart.data.model';
 import { Order } from './model/order.data.model';
 import { OrderData } from './model/order.data';
+import { CreditCard } from './model/credit_card.data.model';
 
 
 @NgModule({
   // tslint:disable-next-line:max-line-length
   imports: [BrowserModule, RouterModule, AppRoutingModule, FormsModule, HttpClientModule, AngularFireModule.initializeApp(environment.firebaseConfig), AngularFireDatabaseModule],
   declarations: [AppComponent, CartComponent, OrderComponent, StoreComponent],
-  providers: [ProductData, ProductService, Cart, Order, OrderData],
-  bootstrap:  [AppComponent ]
+  providers: [ProductData, ProductService, Cart, Order, OrderData, CreditCard],
+  bootstrap:  [AppComponent]
 })
 
 export class AppModule {}

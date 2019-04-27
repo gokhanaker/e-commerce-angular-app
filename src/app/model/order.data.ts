@@ -15,21 +15,15 @@ private orders: Order[] = [];
         return this.orders;
     }
 
-    // saveOrder(order: Order): void {
-     //   console.log(JSON.stringify(order));
-     // }
-
     // tslint:disable-next-line:member-ordering
     httpOptions = {
         headers: new HttpHeaders({ 'Content-Type': 'application/json'})
       };
 
       saveOrder(order: Order): Observable<Order> {
-        // console.log('MY ORDER: ', JSON.stringify(order));
+        console.log('NAME: ', JSON.stringify(order.name));
         console.log('CART Price: ', JSON.stringify(order.cart.cartPrice));
         console.log('CART Items: ', JSON.stringify(order.cart.itemCount));
-        console.log('ID: ', JSON.stringify(order.id));
-        console.log('NAME: ', JSON.stringify(order.name));
 
         this.http.post('https://e-commerce-angular-app.firebaseio.com/orders.json',order, this.httpOptions)
         .subscribe(

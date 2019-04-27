@@ -1,3 +1,20 @@
-.complete-order{
+.order-wrapper{
+    margin-top: 5%;
+    background-image: linear-gradient(#E0EAFC, #CFDEF3);
+}
+
+.order-header{
+    color:#072F5F;
+}
+
+.order-form-field{
+    color: #1261A0;
+}
+
+.btn-complete-order{
     margin-left: 2%;
+}
+
+div .completed-order{
+    margin-top: 10%;
 }
