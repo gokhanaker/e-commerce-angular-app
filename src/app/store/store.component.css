@@ -1,3 +1,7 @@
+.navigation-bar{
+    padding: 0px;
+}
+
 .navbar-btn{
     margin-left: 1%;
     background-color: #DCDCDC;
@@ -11,9 +15,6 @@
     color: white;
 }
 
-.catButtons{
-    margin-top:5%;
-}
 
 .add-to-cart-btn{
     display: block;
@@ -22,5 +23,6 @@
 
 .pagination{
     margin-top: 5%;
+    display: block;
 }
 

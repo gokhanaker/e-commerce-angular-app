@@ -1,26 +1,26 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-         <a class="navbar-brand" href="store">E-Commerce Website</a>
-    </div>
-        <button class="btn navbar-btn" (click)="changeCategory()">Home</button>
-        <button class="btn navbar-btn" (click)="changeCategory('Lord of the Rings Toys')">Lord of the Rings Toys</button>
-        <button class="btn navbar-btn" (click)="changeCategory('Superhero Toys')">Superhero Toys</button>
-        <button class="btn navbar-btn" (click)="changeCategory('Game of Thrones Toys')">Game of Thrones Toys </button>
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="cart"><span class="glyphicon glyphicon-shopping-cart"></span> Cart </a></li>
-        </ul>
-  </div>
-</nav>
+<div class="container navigation-bar">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="store">E-Commerce Website</a>
+            </div>
+            <button class="btn navbar-btn" (click)="changeCategory()">Home</button>
+            <button class="btn navbar-btn" (click)="changeCategory('Lord of the Rings Toys')">Lord of the Rings Toys</button>
+            <button class="btn navbar-btn" (click)="changeCategory('Superhero Toys')">Superhero Toys</button>
+            <button class="btn navbar-btn" (click)="changeCategory('Game of Thrones Toys')">Game of Thrones Toys </button>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="cart"><span class="glyphicon glyphicon-shopping-cart"></span> Cart </a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
 
 <div class="container store-wrapper">
     <div class="text-center">
         <h4 class="store-header"> In this e-commerce website, you can buy toys/action figures of famous characters </h4>
         <hr style="height:1px;"/>
-    <div>
-<div>
+    </div>
 
-<div class="container">
     <div class = "row">
         <div *ngFor="let product of storeProducts; let i = index">
             <div class= "col-md-3" >
@@ -32,7 +32,7 @@
                 </h4>
                 <div class = "text-center">
                     {{product.description}}  
-                    <button class="btn btn-success add-to-cart-btn"(click)="addToCart(product)">
+                    <button class="btn btn-success add-to-cart-btn center-block"(click)="addToCart(product)">
                         Add To Cart
                     </button>  
                 </div>
@@ -46,13 +46,13 @@
             </div>
         </div>     
     </div>
-</div>
 
-  <div class="text-center pagination">
+    <div class="text-center pagination">
         <hr style="height:1px;"/>
         <button *ngFor="let page of pageNumbers" (click)="changePage(page)"
                 class="btn btn-outline-primary" [class.active]="page == selectedPage">
                     {{page}}
         </button>
- </div>
+    </div>
+</div>
 
