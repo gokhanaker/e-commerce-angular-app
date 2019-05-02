@@ -58,34 +58,35 @@
                         <input class="form-control"  name="creditCardHolderName" placeholder="Mr. Example"
                             [(ngModel)]="order.creditCard.creditCardHolderName" required />
                         <span  *ngIf="submitted && creditCardHolderName.invalid" class="text-danger">
-                            Please enter your card holder name
+                            Please re-enter your card holder name
                         </span>
                     </div>
 
                     <div class="form-group">
                         <label class="order-form-field">Credit Card Number</label>
-                        <input class="form-control"  name="creditCardNumber" placeholder="1111 2222 3333 4444"
-                            [(ngModel)]="order.creditCard.creditCardNumber" required />
+                        <input type="number" class="form-control"  name="creditCardNumber" placeholder="0000000000000000"
+                            [(ngModel)]="order.creditCard.creditCardNumber"  />
                     <span  *ngIf="submitted && creditCardNumber.invalid" class="text-danger">
-                            Please enter your credit card number
+                            Invalid Credit Card Number, please re-enter your credit card number
                         </span>
                     </div>
 
                     <div class="form-group">
                         <label class="order-form-field">Credit Card Expiry Date</label>
-                        <input class="form-control"  name="creditCardExpiryDate" placeholder="01/2021"
+                        <input type="date" class="form-control"  name="creditCardExpiryDate" placeholder="01/01/2020"
                             [(ngModel)]="order.creditCard.creditCardExpiryDate" required />
                         <span  *ngIf="submitted && creditCardExpiryDate.invalid" class="text-danger">
-                            Please enter your credit card expiry date
+                            Please re-enter your credit card expiry date
                         </span>
+
                     </div>
 
                     <div class="form-group">
                         <label class="order-form-field">Credit Card Security Code</label>
-                        <input class="form-control" name="creditCardSecurityCode" placeholder="000"
+                        <input type="number" class="form-control" name="creditCardSecurityCode" placeholder="000"
                             [(ngModel)]="order.creditCard.creditCardSecurityCode" required />
                         <span  *ngIf="submitted && creditCardSecurityCode.invalid" class="text-danger">
-                            Please enter your credit card security code
+                            Invalid credit card security code, Please re-enter your credit card security code
                         </span>
                     </div>
                     

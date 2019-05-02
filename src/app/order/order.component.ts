@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderData } from '../model/order.data';
 import { Order } from '../model/order.data.model';
-import { NgForm } from '@angular/forms';
+import { NgForm, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-order',
@@ -17,8 +17,13 @@ export class OrderComponent implements OnInit {
   constructor(public orderData: OrderData,
                 public order: Order) {}
 
+ // this.Order = new FormControl('', [
+ //   Validators.pattern('^[0-9]*$'),
+ // ]);
+
   submitOrder(form: NgForm) {
       this.submitted = true;
+
       if (form.valid) {
           this.orderData.saveOrder(this.order).subscribe(order => {
             this.order.clear();
